@@ -25,6 +25,7 @@ check_if_meta_yaml_file_exists() {
 
 upload_package(){
     conda config --set anaconda_upload yes
+    conda install -c conda-forge mdtraj
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build .
     anaconda logout

@@ -28,8 +28,6 @@ upload_package(){
     apt-get update
     apt-get install -y build-essential
     pip install numpy cython>=0.29
-    conda install gcc_linux-64
-    conda install gxx_linux-64
     pip install --no-use-pep517 mdtraj
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build .

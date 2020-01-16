@@ -25,6 +25,7 @@ check_if_meta_yaml_file_exists() {
 
 upload_package(){
     conda config --set anaconda_upload yes
+    apt-get update
     apt-get install -y build-essential
     pip install numpy cython>=0.29
     conda install gcc_linux-64

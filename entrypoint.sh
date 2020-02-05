@@ -27,8 +27,11 @@ upload_package(){
     conda config --set anaconda_upload yes
     apt-get update
     apt-get install -y build-essential
-    pip install numpy cython>=0.29
-    pip install --no-use-pep517 mdtraj
+    conda create -n myenv python=$PYTHON_VERSION -c conda-forge
+    source activate myenv
+    conda install --yes pip
+    conda install --yes -c conda-forge numpy=1.16.5 cython=0.26.1
+    conda install --yes -c conda-forge nose mdtraj  
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     echo $PWD
     conda build . 

@@ -30,7 +30,7 @@ upload_package(){
     pip install numpy cython>=0.29
     pip install --no-use-pep517 mdtraj
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
-    conda build . --croot
+    conda build . 
     anaconda logout
 }
 

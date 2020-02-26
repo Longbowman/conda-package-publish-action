@@ -28,7 +28,7 @@ upload_package(){
     apt-get update
     apt-get install -y build-essential
     conda create -n myenv python=3.6 -c conda-forge
-    source activate myenv
+    conda activate myenv
     conda install --yes pip
     conda install --yes -c conda-forge numpy=1.16.5 cython=0.26.1
     conda install --yes -c conda-forge nose mdtraj  

@@ -29,6 +29,7 @@ upload_package(){
     apt-get install -y build-essential
     conda create -n myenv python=3.6
     activate myenv
+    echo $PWD
     conda install --yes pip
     conda install --yes numpy cython
     conda install --yes -c conda-forge nose mdtraj  

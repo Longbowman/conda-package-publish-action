@@ -35,7 +35,7 @@ upload_package(){
     conda install --yes -c conda-forge nose mdtraj  
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     echo $PWD
-    conda build . 
+    conda build /github/workspace 
     anaconda logout
 }
 

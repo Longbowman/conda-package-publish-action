@@ -30,11 +30,13 @@ upload_package(){
     conda create -n myenv python=3.6
     activate myenv
     echo $PWD
+    echo "$VIRTUAL_ENV"
     conda install --yes pip
     conda install --yes numpy cython
     conda install --yes -c conda-forge nose mdtraj  
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     echo $PWD
+    echo "$VIRTUAL_ENV"
     conda build /github/workspace 
     anaconda logout
 }

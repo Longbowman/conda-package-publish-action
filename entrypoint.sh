@@ -28,7 +28,7 @@ upload_package(){
     apt-get update
     apt-get install -y build-essential
     conda create -n myenv python=3.6
-    source activate myenv
+    conda activate myenv
     echo $PWD
     echo "$VIRTUAL_ENV"
     conda install --yes pip

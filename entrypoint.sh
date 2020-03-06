@@ -24,10 +24,10 @@ check_if_meta_yaml_file_exists() {
 }
 
 upload_package(){
+    source ~/anaconda3/bin/activate
     conda config --set anaconda_upload yes
     apt-get update
     apt-get install -y build-essential
-    source ~/anaconda3/bin/activate
     conda create -n myenv python=3.6
     conda activate myenv
     echo $PWD
@@ -38,7 +38,7 @@ upload_package(){
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     echo $PWD
     echo "$VIRTUAL_ENV"
-    conda build /github/workspace 
+    conda build .
     anaconda logout
 }
 

@@ -24,7 +24,7 @@ check_if_meta_yaml_file_exists() {
 }
 
 upload_package(){
-    source ~/anaconda3/bin/activate
+    source /usr/share/miniconda/bin/activate
     conda config --set anaconda_upload yes
     apt-get update
     apt-get install -y build-essential

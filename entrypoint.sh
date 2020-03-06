@@ -24,7 +24,7 @@ check_if_meta_yaml_file_exists() {
 }
 
 upload_package(){
-    ls /usr/share/miniconda/
+    which conda
     source /usr/share/miniconda/bin/activate
     conda config --set anaconda_upload yes
     apt-get update

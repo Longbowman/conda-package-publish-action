@@ -24,11 +24,10 @@ check_if_meta_yaml_file_exists() {
 }
 
 upload_package(){
-    which conda
-    source /usr/share/miniconda/bin/activate
     conda config --set anaconda_upload yes
     apt-get update
     apt-get install -y build-essential
+    source  /opt/conda/bin/activate
     conda create -n myenv python=3.6
     conda activate myenv
     echo $PWD

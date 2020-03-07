@@ -24,6 +24,7 @@ check_if_meta_yaml_file_exists() {
 }
 
 upload_package(){
+    ls /opt/conda/bin
     conda config --set anaconda_upload yes
     apt-get update
     apt-get install -y build-essential

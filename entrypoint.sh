@@ -29,12 +29,12 @@ upload_package(){
     apt-get update
     apt-get install -y build-essential
     source  /opt/conda/bin/activate
-    conda create -n myenv python=3.6
+    conda create -n myenv python=3.6 -c conda-forge
     conda activate myenv
     echo $PWD
     echo "$VIRTUAL_ENV"
-    conda install --yes pip
-    conda install --yes numpy cython
+    conda install --yes -c conda-forge pip
+    conda install --yes -c conda-forge numpy cython
     conda install --yes -c conda-forge nose mdtraj  
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     echo $PWD

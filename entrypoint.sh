@@ -31,14 +31,11 @@ upload_package(){
     source  /opt/conda/bin/activate
     conda create -n myenv python=3.6 -c conda-forge
     conda activate myenv
-    echo $PWD
-    echo "$VIRTUAL_ENV"
+    conda config --add channels conda-forge
     conda install --yes -c conda-forge pip
     conda install --yes -c conda-forge numpy cython
     conda install --yes -c conda-forge nose mdtraj  
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
-    echo $PWD
-    echo "$VIRTUAL_ENV"
     conda build .
     anaconda logout
 }

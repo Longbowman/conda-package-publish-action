@@ -30,6 +30,10 @@ upload_package(){
     apt-get install -y build-essential
     source  /opt/conda/bin/activate
     conda create -n myenv python=3.6 -c conda-forge
+    conda config --add channels conda-forge
+    conda install --yes -c conda-forge pip
+    conda install --yes -c conda-forge numpy cython
+    conda install --yes -c conda-forge nose mdtraj  
     conda activate myenv
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build .

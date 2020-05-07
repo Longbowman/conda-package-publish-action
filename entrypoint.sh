@@ -28,6 +28,7 @@ upload_package(){
     conda config --set anaconda_upload no
     apt-get update
     apt-get install -y build-essential
+    mkdir /opt/output
     source  /opt/conda/bin/activate
     conda create -n myenv python=3.6 -c conda-forge
     conda config --add channels conda-forge
@@ -37,8 +38,8 @@ upload_package(){
     conda install --yes conda-verify
     conda activate myenv
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
-    conda build .
-    anaconda upload --user bowman-lab
+    conda build . --output-folder /opt/output
+    anaconda upload --user bowman-lab /opt/output/*.tar.bz2
     anaconda logout
 }
 

@@ -25,7 +25,7 @@ check_if_meta_yaml_file_exists() {
 
 upload_package(){
     ls /opt/conda/bin
-    conda config --set anaconda_upload yes
+    conda config --set anaconda_upload no
     apt-get update
     apt-get install -y build-essential
     source  /opt/conda/bin/activate
@@ -38,6 +38,7 @@ upload_package(){
     conda activate myenv
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build .
+    anaconda upload --user bowman-lab
     anaconda logout
 }
 

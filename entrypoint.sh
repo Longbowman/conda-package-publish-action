@@ -39,7 +39,7 @@ upload_package(){
     conda activate myenv
     anaconda login --username $INPUT_ANACONDAUSERNAME --password $INPUT_ANACONDAPASSWORD
     conda build . --output-folder /opt/output
-    anaconda upload --user bowman-lab /opt/output/*.tar.bz2
+    anaconda upload --user bowman-lab $(ls /opt/output/noarch/*.tar.gz)
     anaconda logout
 }
 
